@@ -1,23 +1,25 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
+@extends('layouts.dashboard.app')
+@section('title')
+Dasbor
+@endsection
+@section('main-content')
+<div class="main-content">
+  <section class="section">
+    <div class="section-header">
+      <h1>Dasbor</h1>
     </div>
+    <div class="row">
+      <div class="col-12 mb-4">
+        <div class="hero bg-primary text-white">
+          <div class="hero-inner">
+            <h2>Sistem Informasi Pengajuan Cuti</h2>
+            <p class="lead">
+              Halo <strong style="font-weight: bold !important; text-transform: capitalize !important;">{{ Auth::user()->name }}</strong>, Anda dapat melakukan pengajuan cuti melalui sistem ini.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
 @endsection

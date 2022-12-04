@@ -14,7 +14,10 @@ class AddRoleToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->enum('role', ['User', 'Karyawan', 'HRD', 'Administrator'])->nullable()->default('User');
+            $table->enum('role', ['User', 'Karyawan', 'HRD', 'Administrator'])
+                    ->nullable()
+                    ->default('User')
+                    ->after('password');
         });
     }
 
