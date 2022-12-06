@@ -2812,7 +2812,8 @@ body.layout-3 .main-footer {
         margin-top: 3px;
         width: 100%; }
       .main-sidebar .sidebar-menu li a:hover {
-        background-color: #f8fafb; }
+        background-color: #f8fafb;
+        color: #0056b3; }
     .main-sidebar .sidebar-menu li.active a {
       color: #186fba;
       font-weight: 600;

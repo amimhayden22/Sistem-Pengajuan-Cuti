@@ -17,7 +17,7 @@
                     <a href="{{ url('dashboard') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dasbor</span></a>
                 </li>
                 <li class="menu-header">Master Data</li>
-                <li class="{{ (request()->is('dashboard/positions*')) ? 'active' : '' }}"><a class="nav-link" href="#"><i class="fas fa-briefcase"></i> <span>Jabatan</span></a></li>
+                <li class="{{ (request()->is('dashboard/positions*')) ? 'active' : '' }}"><a class="nav-link" href="{{ route('positions.index') }}"><i }} class="fas fa-briefcase"></i> <span>Jabatan</span></a></li>
                 <li class="{{ (request()->is('dashboard/employees*')) ? 'active' : '' }}"><a class="nav-link" href="#"><i class="fas fa-users"></i> <span>Karyawan</span></a></li>
                 @if (Auth::user()->role === 'Administrator')
                     <li class="{{ (request()->is('dashboard/users*')) ? 'active' : '' }}"><a class="nav-link" href="#"><i class="fas fa-user-plus"></i> <span>Pengguna</span></a></li>

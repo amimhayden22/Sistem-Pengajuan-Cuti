@@ -51,7 +51,9 @@
                 <!-- / Sidebar -->
 
                 <!-- Main Content -->
-                @yield('main-content')
+                <div class="main-content">
+                    @yield('main-content')
+                </div>
                 <!-- / Main Content -->
 
                 {{-- Button To Top --}}
