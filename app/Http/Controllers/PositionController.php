@@ -92,7 +92,7 @@ class PositionController extends Controller
             'name'    => $request->name,
         ]);
 
-        return redirect('/dashboard/positions')->with('message', 'Data berhasil diperbarui....');
+        return redirect('/dashboard/positions')->with('success', 'Data berhasil diperbarui....');
     }
 
     /**
@@ -109,6 +109,6 @@ class PositionController extends Controller
         }
         $position->delete();
 
-        return back()->with('message', 'Data berhasil dihapus...');
+        return back()->with('success', 'Data berhasil dihapus...');
     }
 }
