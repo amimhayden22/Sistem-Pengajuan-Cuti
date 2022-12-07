@@ -2,7 +2,6 @@
 @section('title') Jabatan @endsection
 @section('style')
 <link rel="stylesheet" href="{{ asset('backend/assets/css/datatables/dataTables.bootstrap4.min.css') }}">
-<link rel="stylesheet" href="{{ asset('backend/assets/css/datatables/select.bootstrap4.min.css') }}">
 @endsection
 @section('main-content')
     <section class="section">
@@ -82,7 +81,6 @@
 @section('script-libraies')
 <script src="{{ asset('backend/assets/js/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('backend/assets/js/datatables/dataTables.bootstrap4.min.js') }}"></script>
-<script src="{{ asset('backend/assets/js/datatables/select.bootstrap4.min.js') }}"></script>
 @endsection
 @section('script-page-specific')
 <script src="{{ asset('backend/assets/js/page/modules-datatables.js') }}"></script>
