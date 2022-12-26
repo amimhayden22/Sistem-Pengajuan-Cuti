@@ -20,7 +20,7 @@
                 <li class="{{ (request()->is('dashboard/positions*')) ? 'active' : '' }}"><a class="nav-link" href="{{ route('positions.index') }}"><i }} class="fas fa-briefcase"></i> <span>Jabatan</span></a></li>
                 <li class="{{ (request()->is('dashboard/employees*')) ? 'active' : '' }}"><a class="nav-link" href="#"><i class="fas fa-users"></i> <span>Karyawan</span></a></li>
                 @if (Auth::user()->role === 'Administrator')
-                    <li class="{{ (request()->is('dashboard/users*')) ? 'active' : '' }}"><a class="nav-link" href="#"><i class="fas fa-user-plus"></i> <span>Pengguna</span></a></li>
+                    <li class="{{ (request()->is('dashboard/users*')) ? 'active' : '' }}"><a class="nav-link" href="{{ route('users.index') }}"><i class="fas fa-user-plus"></i> <span>Pengguna</span></a></li>
                 @endif
                 <li class="menu-header">Transaksi</li>
                 <li class="{{ (request()->is('dashboard/transactions*')) ? 'active' : '' }}"><a class="nav-link" href="#"><i class="fas fa-user-tie"></i> <span>Pengajuan Cuti</span></a></li>

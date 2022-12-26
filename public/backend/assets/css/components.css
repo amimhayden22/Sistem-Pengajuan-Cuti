@@ -707,15 +707,15 @@ tr:first-child > td > .fc-day-grid-event {
 
 .select2-container.select2-container--open .select2-selection--multiple {
   background-color: #fefeff;
-  border-color: #f49595; }
+  border-color: #3a7fba; }
 
 .select2-container.select2-container--focus .select2-selection--multiple, .select2-container.select2-container--focus .select2-selection--single {
   background-color: #fefeff;
-  border-color: #f49595; }
+  border-color: #3a7fba; }
 
 .select2-container.select2-container--open .select2-selection--single {
   background-color: #fefeff;
-  border-color: #f49595; }
+  border-color: #3a7fba; }
 
 .select2-results__option {
   padding: 10px; }
@@ -753,7 +753,7 @@ tr:first-child > td > .fc-day-grid-event {
 .select2-container--default .select2-selection--multiple .select2-selection__choice,
 .select2-container--default .select2-results__option[aria-selected=true],
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
-  background-color: #dc0a17;
+  background-color: #186fba;
   color: #fff; }
 
 .select2-results__option {

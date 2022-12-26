@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{HomeController, PositionController};
+use App\Http\Controllers\{HomeController, PositionController, UserController};
 
 /*
 |--------------------------------------------------------------------------
@@ -26,5 +26,6 @@ Auth::routes([
 Route::prefix('dashboard')->middleware(['auth'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::resource('/positions', PositionController::class);
+    Route::resource('/users', UserController::class);
 });
 

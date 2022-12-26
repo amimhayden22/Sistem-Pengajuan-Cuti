@@ -53,6 +53,35 @@ $('[data-confirm]').each(function() {
   })
 });
 
+// Confirm box for delete data
+$('[data-confirm-delete]').each(function() {
+    var me = $(this),
+        me_data = me.data('confirm-delete');
+
+    me_data = me_data.split("|");
+    me.fireModal({
+      title: me_data[0],
+      body: me_data[1],
+      buttons: [
+        {
+          text: me.data('confirm-text-cancel') || 'Batal',
+          class: 'btn btn-outline-secondary',
+          handler: function(modal) {
+            $.destroyModal(modal);
+            eval(me.data('confirm-delete-no'));
+          }
+        },
+        {
+          text: me.data('confirm-text-yes') || 'Hapus',
+          class: 'btn btn-danger btn-shadow',
+          handler: function() {
+            eval(me.data('confirm-delete-yes'));
+          }
+        }
+      ]
+    })
+  });
+
 // Global
 $(function() {
   let sidebar_nicescroll_opts = {
