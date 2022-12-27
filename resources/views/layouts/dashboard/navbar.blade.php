@@ -13,7 +13,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-title">Menu</div>
-                <a href="#" class="dropdown-item has-icon">
+                <a href="{{ route('user.profile', Auth::user()->id) }}" class="dropdown-item has-icon">
                     <i class="far fa-user"></i> Profil
                 </a>
                 <div class="dropdown-divider"></div>

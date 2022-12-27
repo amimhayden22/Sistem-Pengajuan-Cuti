@@ -25,6 +25,7 @@ Auth::routes([
 
 Route::prefix('dashboard')->middleware(['auth'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/profile', [UserController::class, 'profile'])->name('user.profile');
     Route::resource('/positions', PositionController::class);
     Route::resource('/users', UserController::class);
 Route::resource('/employees', EmployeeController::class);

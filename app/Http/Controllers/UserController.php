@@ -92,10 +92,10 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name'     => 'required|string|nullable',
-            'email'    => 'required|string|email|max:255:users|nullable',
+            'name'     => 'required|string',
+            'email'    => 'required|string|email|max:255',
             'password' => 'nullable|string|min:8',
-            'role'     => 'required|not_in:0|nullable',
+            'role'     => 'required|not_in:0',
         ]);
 
         $user = User::find($id);
@@ -116,7 +116,7 @@ class UserController extends Controller
         }
         $user->update($updateUser);
 
-        return redirect('/dashboard/users')->with('success', 'Data berhasil diperbarui....');
+        return redirect()->back()->with('success', 'Data berhasil diperbarui....');
     }
 
     /**
