@@ -33,6 +33,15 @@ Manajemen Karyawan
         </div>
         @endif
 
+        @if (Session::has('email'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span>
+            </button>
+            <strong>Sukses!</strong> {{ Session('email') }}
+        </div>
+         @endif
 
         @if (Session::has('error'))
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -77,6 +86,7 @@ Manajemen Karyawan
                                     <td>{{ $employee->email }}</td>
                                     <td>{{ $employee->position->name }}</td>
                                     <td>
+                                        {{-- Detail Data --}}
                                         <button type="button" class="btn btn-info btn-sm detail-karyawan" data-toggle="tooltip" data-original-title="Detail Data"
                                         data-id="{{ $employee->id }}"
                                         data-code="{{ $employee->code }}"
@@ -92,6 +102,7 @@ Manajemen Karyawan
                                         data-bank="{{ $employee->bank }}"
                                         data-account_number="{{ $employee->account_number }}"
                                         ><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                        {{-- Edit Data --}}
                                         <a href="{{ route('employees.edit', $employee->id) }}" class="btn btn-warning btn-sm" data-toggle="tooltip" data-original-title="Edit Data"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
                                         {{-- Hapus Data --}}
                                         <button type="button" class="btn btn-danger btn-sm"
@@ -103,6 +114,15 @@ Manajemen Karyawan
                                         <form id="delete-employee-{{ $employee->id }}" action="{{ route('employees.destroy', $employee->id) }}" method="POST" style="display: none;">
                                             @csrf
                                             @method('delete')
+                                        </form>
+                                        {{-- Kirim Akun Karyawan --}}
+                                        <button type="button" class="btn btn-primary btn-sm {{ $employee->user_id ? 'disabled' : '' }}"
+                                        data-toggle="tooltip" data-original-title="Kirim Informasi Akun Karyawan"
+                                        onclick="event.preventDefault(); document.getElementById('send-email-{{ $employee->id }}').submit()">
+                                        <i class="fas fa-paper-plane"></i></button>
+                                        <form id="send-email-{{ $employee->id }}" action="{{ route('employees.send-email', $employee->id) }}" method="POST" style="display: none;">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $employee->id }}">
                                         </form>
                                     </td>
                                 </tr>

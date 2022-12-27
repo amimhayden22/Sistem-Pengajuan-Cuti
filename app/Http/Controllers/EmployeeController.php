@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{Employee, Position};
-use Illuminate\Support\Facades\{Auth, DB, Hash};
+use App\Mail\AccountInformation;
+use App\Models\{Employee, Position, User};
+use Illuminate\Support\Facades\{DB, Hash, Mail};
 
 class EmployeeController extends Controller
 {
@@ -172,4 +173,39 @@ class EmployeeController extends Controller
         return redirect()->back()->with('success', 'Data berhasil dihapus!');
     }
 
+    public function sendEmail($id)
+    {
+        $employee = Employee::find($id);
+        if(is_null($employee)){
+            return abort(404);
+        }
+
+        try {
+            DB::beginTransaction();
+
+            $generatePassword = 'Or1gin_'.date("Ymd", strtotime($employee->date_of_birth));
+
+            $createUser = User::create([
+                'name'              => $employee->name,
+                'email'             => $employee->email,
+                'email_verified_at' => now(),
+                'password'          => Hash::make($generatePassword),
+                'role'              => 'karyawan'
+            ]);
+
+            $employee->update([
+                'user_id' => $createUser->id
+            ]);
+
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+
+        Mail::to($employee->email)->send(new AccountInformation($employee));
+
+        return redirect()->back()->with('email', 'Informasi akun untuk '.$employee->name.' telah dikirim!');
+
+    }
 }
