@@ -53,6 +53,35 @@ $('[data-confirm]').each(function() {
   })
 });
 
+// Confirm box for success
+$('[data-confirm-success]').each(function() {
+    var me = $(this),
+        me_data = me.data('confirm-success');
+
+    me_data = me_data.split("|");
+    me.fireModal({
+      title: me_data[0],
+      body: me_data[1],
+      buttons: [
+        {
+          text: me.data('confirm-text-cancel') || 'Batal',
+          class: 'btn btn-outline-secondary',
+          handler: function(modal) {
+            $.destroyModal(modal);
+            eval(me.data('confirm-no'));
+          }
+        },
+        {
+          text: me.data('confirm-text-yes-success') || 'Yakin',
+          class: 'btn btn-success btn-shadow',
+          handler: function() {
+            eval(me.data('confirm-yes-success'));
+          }
+        }
+      ]
+    })
+  });
+
 // Confirm box for delete data
 $('[data-confirm-delete]').each(function() {
     var me = $(this),
@@ -80,7 +109,7 @@ $('[data-confirm-delete]').each(function() {
         }
       ]
     })
-  });
+});
 
 // Global
 $(function() {

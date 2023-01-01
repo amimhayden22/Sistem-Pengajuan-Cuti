@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{EmployeeController, HomeController, PositionController, UserController};
+use App\Http\Controllers\{EmployeeController, HomeController, PositionController, TransactionController, UserController};
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +30,7 @@ Route::prefix('dashboard')->middleware(['auth'])->group(function () {
     Route::resource('/positions', PositionController::class);
     Route::resource('/users', UserController::class);
     Route::resource('/employees', EmployeeController::class);
+    Route::resource('/leave-application', TransactionController::class);
 
 });
 

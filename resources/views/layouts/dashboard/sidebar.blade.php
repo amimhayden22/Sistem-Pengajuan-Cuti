@@ -23,7 +23,7 @@
                     <li class="{{ (request()->is('dashboard/users*')) ? 'active' : '' }}"><a class="nav-link" href="{{ route('users.index') }}"><i class="fas fa-user-plus"></i> <span>Pengguna</span></a></li>
                 @endif
                 <li class="menu-header">Transaksi</li>
-                <li class="{{ (request()->is('dashboard/transactions*')) ? 'active' : '' }}"><a class="nav-link" href="#"><i class="fas fa-user-tie"></i> <span>Pengajuan Cuti</span></a></li>
+                <li class="{{ (request()->is('dashboard/leave-application*')) ? 'active' : '' }}"><a class="nav-link" href="{{ route('leave-application.index') }}"><i class="fas fa-user-tie"></i> <span>Pengajuan Cuti</span></a></li>
             @endauth
         </ul>
         <div class="p-3 hide-sidebar-mini">
